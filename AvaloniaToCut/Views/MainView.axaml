@@ -1,0 +1,39 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="clr-namespace:AvaloniaToCut.ViewModels;assembly=AvaloniaToCut"
+			 xmlns:v="clr-namespace:AvaloniaToCut.Views;assembly=AvaloniaToCut"
+             mc:Ignorable="d"
+			 d:DesignWidth="800" 
+			 d:DesignHeight="600"
+             x:Class="AvaloniaToCut.Views.MainView"
+             Foreground="Black"
+             Background="DarkGray">
+  <Design.DataContext>
+    <!-- This only sets the DataContext for the previewer in an IDE,
+         to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
+    <vm:MainViewModel />
+  </Design.DataContext>
+	<Grid ColumnDefinitions="Auto,*,Auto,Auto,Auto" 
+		  RowDefinitions="Auto,Auto,*,Auto,Auto">
+		<Grid.Styles>
+			<Style Selector="Border">
+				<Setter Property="BorderThickness" Value="1" />
+				<Setter Property="BorderBrush" Value="Gray" />
+			</Style>
+		</Grid.Styles>
+		<v:TopMenuView Grid.Row="0"
+					   Grid.ColumnSpan="5" />
+		<v:NavigationPanelView Grid.Column="0"
+							   Grid.Row="2"
+							   MinWidth="200"
+							   Background="AntiqueWhite" />
+		<GridSplitter Grid.Column="1"
+					  Grid.Row="2" />
+		<v:SceneCanvasView Grid.Row="2"
+						   Grid.Column="1" />
+		<v:StatusBarView Grid.Row="3"
+						 Grid.ColumnSpan="5" />
+	</Grid>
+</UserControl>
